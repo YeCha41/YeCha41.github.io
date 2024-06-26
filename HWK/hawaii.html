@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            width: 100%;
+            vertical-align: middle;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: currentColor;
+        }
+
+        .title {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 50px 0;
+
+        }
+
+        .title .title_s {
+            font-size: 10px;
+            order: 1;
+        }
+
+        .title .title_m {
+            font-size: 50px;
+        }
+
+        .item {
+            position: relative;
+        }
+
+        .item_card img {
+            width: 20%;
+            position: absolute;
+            margin-top: -450px;
+            margin-left: 300px;
+        }
+
+        .item_card .break_small {
+            display: block;
+            margin: 30px 20px;
+        }
+
+        .item_card .break_large {
+            display: none;
+        }
+
+        .content {
+            background-color: #f9f6f5;
+            padding: 50px 20px;
+        }
+
+        .content_pic img {
+            border-radius: 10px;
+        }
+
+        .content_txt-h3_small {
+            display: block;
+            font-size: 25px;
+            padding: 30px 0;
+        }
+
+        .content_txt-h3_large {
+            display: none;
+        }
+
+        .content_txt p {
+            margin-bottom: 20px;
+        }
+
+        .content_txt a {
+            color: #f65936;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .slg {
+            background-color: #f9f6f5;
+            font-size: 30px;
+        }
+
+        .slg h3 {
+            line-height: 1;
+            font-weight: normal;
+        }
+
+        .slg h3 span {
+            color: #f65936;
+            font-weight: bold;
+        }
+
+        .about {
+            background-color: #f9f6f5;
+            padding-bottom: 50px;
+        }
+
+        .about_title {
+            text-align: center;
+            font-size: 12px;
+            padding: 50px 0;
+        }
+
+        .cardList {
+            overflow-x: auto;
+            padding: 0 16px;
+            display: flex;
+            gap: 16px;
+        }
+
+        .cardList .card {
+            flex: 0 0 auto;
+            width: 70%;
+        }
+
+        .cardList .card a {
+            text-decoration: none;
+        }
+
+        .cardList .card div {
+            padding: 20px;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            height: 380px;
+            border-radius: 10px;
+        }
+
+        .card_01 {
+            background: url("https://www.allhawaii.jp/malamahawaii/wp-content/themes/malamahawaii/img/home/about_bg01.jpg");
+        }
+
+        .card_02 {
+            background: url("https://www.allhawaii.jp/malamahawaii/wp-content/themes/malamahawaii/img/home/about_bg02.jpg");
+        }
+
+        .card_03 {
+            background: url("https://www.allhawaii.jp/malamahawaii/wp-content/themes/malamahawaii/img/home/about_bg03.jpg");
+        }
+
+        .newsList_title {
+            font-size: 21px;
+            border-top: 2px solid #000;
+            margin: 50px 16px;
+            padding-top: 10px;
+        }
+
+        .newsCard_title {
+            font-size: 18px;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 10px;
+            margin: 0 16px 50px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .newsCard_title .newsCard_title_en {
+            font-size: 11px;
+            color: #6f7071;
+        }
+
+        .newsCard_title a {
+            font-size: 13px;
+            color: #f65936;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .newsCardList_item {
+            margin: 0 16px;
+            gap: 16px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+        }
+
+        .newsCard_L {
+            grid-column: span 2;
+            grid-row: span 2;
+            margin: 0 -16px;
+        }
+
+        .newsCard_L img {
+            height: 230px;
+        }
+
+        .newsCard_L_txt {
+            margin: 0 16px;
+        }
+
+        .newsCard_L_txt h5,
+        .newsCard_txt h5 {
+            padding: 12px 0;
+        }
+
+        .newsCard_L_txt h5 {
+            font-size: 18px;
+        }
+
+        .newsCard_L_txt p {
+            font-size: 13px;
+        }
+
+        .newsCard_txt h5 {
+            font-size: 14px;
+        }
+
+        .newsCard_L_txt_time,
+        .newsCard_txt_time {
+            font-size: 12px;
+            padding-top: 10px;
+        }
+
+        .newsCard img {
+            border-radius: 7px;
+            height: 100px;
+        }
+
+        @media screen and (min-width: 900px) {
+
+
+            img {
+                vertical-align: middle
+            }
+
+            .title {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 50px;
+            }
+
+            .title .title_s {
+                font-size: 20px;
+                order: 0;
+            }
+
+            .title .title_m {
+                font-size: 100px;
+                line-height: 0.9;
+            }
+
+            .item {
+                display: flex;
+            }
+
+            .item_pic {
+                width: 64%;
+                margin-top: -90px;
+                z-index: -1;
+            }
+
+            .item_pic img {
+                width: 100%;
+            }
+
+            .item_card {
+                width: 36%;
+                writing-mode: vertical-rl;
+                display: flex;
+                align-items: center;
+                margin: auto;
+                gap: 100px;
+            }
+
+            .item_card img {
+                width: 100px;
+                margin: 0;
+                position: static;
+            }
+
+            .item_card .break_small {
+                display: none;
+            }
+
+            .item_card .break_large {
+                display: block;
+            }
+
+            .content {
+                background-color: #f9f6f5;
+                display: flex;
+                justify-content: center;
+                padding: 100px 0;
+            }
+
+            .content_pic {
+                width: 550px;
+            }
+
+            .content_pic img {
+                width: 100%;
+                border-radius: 10px;
+                margin-top: -210px;
+            }
+
+            .content_txt {
+                width: 540px;
+                margin-left: 90px;
+            }
+
+            .content_txt-h3_small {
+                display: none;
+            }
+
+            .content_txt-h3_large {
+                display: block;
+                font-size: 32px;
+                line-height: 150%;
+                margin-bottom: 35px;
+            }
+
+            .content_txt p {
+                font-weight: bold;
+                margin-bottom: 35px;
+            }
+
+            .slg {
+                background-color: #f9f6f5;
+                font-size: 84px;
+                display: flex;
+                justify-content: center;
+                margin-left: -100px;
+            }
+
+            .about {
+                background-color: #f9f6f5;
+            }
+
+            .about_title {
+                font-size: 11px;
+                padding: 80px 0;
+            }
+
+            .cardList {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .cardList .card {
+                flex: 0 0 0;
+                width: 100%;
+            }
+
+            .cardList .card div {
+                width: 350px;
+                height: 500px;
+            }
+
+            .card_01 {
+                background: url("https://www.allhawaii.jp/malamahawaii/wp-content/themes/malamahawaii/img/home/about_bg01.jpg");
+            }
+
+            .card_02 {
+                background: url("https://www.allhawaii.jp/malamahawaii/wp-content/themes/malamahawaii/img/home/about_bg02.jpg");
+            }
+
+            .card_03 {
+                background: url("https://www.allhawaii.jp/malamahawaii/wp-content/themes/malamahawaii/img/home/about_bg03.jpg");
+            }
+
+            .newsList {
+                max-width: 1200px;
+                margin: auto;
+            }
+
+            .newsCardList_item {
+                margin: 0;
+                gap: 30px;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+            }
+
+            .newsCard_L {
+                margin: 0;
+            }
+
+            .newsCard_L img {
+                border-radius: 10px;
+                height: 70%;
+            }
+
+            .newsCard img {
+                height: 70%;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="title">
+        <div class="title_s">
+            <h1>ハワイを想うことは、<br>
+                ハワイの未来を創ること。</h1>
+        </div>
+        <div class="title_m">
+            <h2>Re-Imagine<br>Hawai‘i</h2>
+        </div>
+    </div>
+    <div class="item">
+        <div class="item_pic">
+            <img src="https://www.allhawaii.jp/malamahawaii/wp-content/themes/malamahawaii/img/home/main.jpg">
+        </div>
+        <div class="item_card">
+            <img src="https://www.allhawaii.jp/malamahawaii/wp-content/themes/malamahawaii/img/home/scroll_more.svg">
+            <p class="break_small">
+                美しい楽園ハワイは、<br>永遠ではありません。<br>
+                山から海まで、<br>ハワイに生きる美しい自然や文化に<br>
+                「マラマ = 思いやりの心」を持って接すること。<br>
+                レスポンシブル・ツーリズムは、<br>そんな思いやりの心を<br>
+                旅の中で実践していく、<br>新しい観光のカタチです。<br>
+                ハワイが何十年後も、何百年後も、<br>素晴らしい楽園であるよう<br>
+                旅行者のみなさんだから<br>できることがあります。
+            </p>
+            <p class="break_large">
+                美しい楽園ハワイは、永遠ではありません。<br>
+                山から海まで、ハワイに生きる美しい自然や文化に<br>
+                「マラマ = 思いやりの心」を持って接すること。<br>
+                レスポンシブル・ツーリズムは、そんな思いやりの心を<br>
+                旅の中で実践していく、新しい観光のカタチです。<br>
+                ハワイが何十年後も、何百年後も、素晴らしい楽園であるよう<br>
+                旅行者のみなさんだからできることがあります。
+            </p>
+        </div>
+    </div>
+    <div class="content">
+        <div class="content_pic">
+            <img src="https://www.allhawaii.jp/malamahawaii/wp-content/themes/malamahawaii/img/home/main_turtle.jpg">
+        </div>
+        <div class="content_txt">
+            <h3 class="content_txt-h3_small">美しいハワイを未来へとつなぐためにわたしたちができること</h3>
+            <h3 class="content_txt-h3_large">美しいハワイを<br>
+                未来へとつなぐために<br>
+                わたしたちができること</h3>
+            <p>ハワイは世界の絶滅危惧種の宝庫と呼ばれるほど、貴重な生物がたくさん生息しています。ウミガメ、イルカ、クジラ、サンゴ礁。これらを守るためにも、知ってもらいたいことやルールがあります。これからは旅行者にも、ハワイの島々の自然や文化を守り、現地住民が大「レスポンシブル・ツーリズム」一緒にはじめませんか。
+            </p>
+            <a href="#">マラマハワイとは ⭢</a>
+        </div>
+    </div>
+    <div class="slg">
+        <h3>What We Can Do to<br>
+            <span>Keep Hawai‘i Beautiful</span><br>
+            for the Future.
+        </h3>
+    </div>
+    <div class="about">
+        <div class="about_title">
+            <h4>ABOUT MĀLAMA HAWAI‘I</h4>
+        </div>
+        <div class="cardList">
+            <div class="card">
+                <a href="#">
+                    <div class="card_01">
+                        <h3>責任ある旅行“レスポンシブル・ツーリズム”について</h3>
+                        <p>詳しく見る</p>
+                    </div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="#">
+                    <div class="card_02">
+                        <h3>責任ある旅行“レスポンシブル・ツーリズム”について</h3>
+                        <p>詳しく見る</p>
+                    </div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="#">
+                    <div class="card_03">
+                        <h3>責任ある旅行“レスポンシブル・ツーリズム”について</h3>
+                        <p>詳しく見る</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="newsList">
+        <div class="newsList_title">
+            <h4>LATEST</h4>
+        </div>
+        <div class="newsCardList">
+            <div class="newsCard_title">
+                <h3>
+                    <span>旅行者にできること</span><br>
+                    <span class="newsCard_title_en">What Travelers Can Do</span>
+                </h3>
+                <a href="#">すべて見る ⭢</a>
+            </div>
+            <div class="newsCardList_item">
+                <div class="newsCard_L"><a href="#">
+                        <img src="https://www.allhawaii.jp/malamahawaii/wp-content/uploads/2024/03/Allhawaii%E3%82%B3%E3%83%A9%E3%83%A0%E7%94%A8-3.png"
+                            alt="">
+                        <div class="newsCard_L_txt">
+                            <h5>【4月22日はアースデイ】ハワイでの環境にやさしいイベントを紹介！</h5>
+                            <p>毎年4月22日はアースデイ(Earth Day)！地球や環境のことを考え、一人一人が何ができるかを考えたり行動を起こすために生まれた1日。1970年にユネスコに</p>
+                            <p class="newsCard_L_txt_time">2024.03.21</p>
+                        </div>
+                    </a></div>
+                <div class="newsCard"><a href="#">
+                        <img src="https://www.allhawaii.jp/malamahawaii/wp-content/uploads/2021/04/Prince-Kuhio-768x509.jpg"
+                            alt="">
+                        <div class="newsCard_txt">
+                            <h5>プリンス・クヒオ・デイ・セレブレーション（Prince Kuhio Day Celebration）</h5>
+                            <p class="newsCard_txt_time">2024.03.21</p>
+                        </div>
+                    </a></div>
+                <div class="newsCard"><a href="#">
+                        <img src="https://www.allhawaii.jp/malamahawaii/wp-content/uploads/2023/11/230820_Puerto-Morelos-Limones_LJM07316-scaled.jpg"
+                            alt="">
+                        <div class="newsCard_txt">
+                            <h5>11月はサンゴ白化啓発月間　〜日常でできること〜</h5>
+                            <p class="newsCard_txt_time">2023.11.09</p>
+                        </div>
+                    </a></div>
+                <div class="newsCard"><a href="#">
+                        <img src="https://www.allhawaii.jp/malamahawaii/wp-content/uploads/2023/08/%E7%B1%B3%E5%9B%BD%E3%83%8F%E3%83%AF%E3%82%A4%E5%B7%9E%E3%83%9E%E3%82%A6%E3%82%A4%E9%83%A1%E3%83%9E%E3%82%A6%E3%82%A4%E5%B3%B6%E3%81%AE%E5%B1%B1%E7%81%AB%E4%BA%8B%E6%95%91%E6%8F%B4%E9%87%91-640-%C3%97-427-px-1.png"
+                            alt="">
+                        <div class="newsCard_txt">
+                            <h5>マウイ島の山火事救援金、日本円で受付開始</h5>
+                            <p class="newsCard_txt_time">2023.08.18</p>
+                        </div>
+                    </a></div>
+                <div class="newsCard"><a href="#">
+                        <img src="https://www.allhawaii.jp/malamahawaii/wp-content/uploads/2023/07/image.png" alt="">
+                        <div class="newsCard_txt">
+                            <h5>2023年7月後半～9月にハワイで開催されるカルチャーイベント</h5>
+                            <p class="newsCard_txt_time">2023.07.20</p>
+                        </div>
+                    </a></div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
