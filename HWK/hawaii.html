@@ -20,10 +20,11 @@
             text-decoration: none;
         }
 
-        a:visited {
+        a:visited,
+        a:link {
             color: currentColor;
         }
-
+        
         .title {
             display: flex;
             flex-wrap: wrap;
@@ -136,9 +137,51 @@
             background-size: cover;
             background-position: center;
             color: white;
-            height: 380px;
+            height: 340px;
             border-radius: 10px;
+            display: flex;
+            flex-direction: column;
         }
+
+        .cardList .card h4 {
+            font-size: 19px;
+            margin-bottom: 20px;
+        }
+
+        .cardList .card .btn {
+            font-size: 12px;
+            border: 1px solid #fff;
+            padding: 6px 12px;
+            border-radius: 100px;
+            display: inline-flex;
+            align-items: center;
+            align-self: flex-start;
+        }
+
+        .cardList .card .btn::after {
+            content: "⭢";
+            font-size: 8px;
+            color: #f45936;
+            font-weight: bold;
+            border: 1px solid #f45936;
+            border-radius: 50%;
+            padding: 5px;
+            margin-left: 10px;
+        }
+
+        .cardList .card p {
+            display: none;
+            font-size: 14px;
+        }
+
+        .cardList .card .txt_EN {
+            font-size: 11px;
+            color: #b7b6b7;
+            margin-top: auto;
+            margin-bottom: 20px;
+        }
+
+
 
         .card_01 {
             background: url("https://www.allhawaii.jp/malamahawaii/wp-content/themes/malamahawaii/img/home/about_bg01.jpg");
@@ -231,7 +274,8 @@
             height: 100px;
         }
 
-        @media screen and (min-width: 900px) {
+
+        @media screen and (min-width: 770px) {
 
 
             img {
@@ -363,6 +407,25 @@
                 height: 500px;
             }
 
+            .cardList .card:hover .btn {
+                background-color: #fff;
+                color: #000;
+            }
+
+            .cardList .card:hover .btn::after {
+                background-color: #f45936;
+                color: #fff;
+            }
+
+            .cardList .card:hover p {
+                display: block;
+                margin-top: auto;
+            }
+
+            .cardList .card:hover .txt_EN {
+                margin-top: 10px;
+            }
+
             .card_01 {
                 background: url("https://www.allhawaii.jp/malamahawaii/wp-content/themes/malamahawaii/img/home/about_bg01.jpg");
             }
@@ -400,8 +463,6 @@
             .newsCard img {
                 height: 70%;
             }
-
-
         }
     </style>
 </head>
@@ -470,24 +531,30 @@
             <div class="card">
                 <a href="#">
                     <div class="card_01">
-                        <h3>責任ある旅行“レスポンシブル・ツーリズム”について</h3>
-                        <p>詳しく見る</p>
+                        <h4>責任ある旅行“レスポンシブル・ツーリズム”について</h4>
+                        <span class="btn">詳しく見る</span>
+                        <p>観光客もツーリズムを構成する要素であると捉え、観光客が意識や行動に責任を持つことで、より良い観光地形成を行っていこうという考え方です。</p>
+                        <span class="txt_EN">WHAT IS “RESPONSIBLE TOURISM”</span>
                     </div>
                 </a>
             </div>
             <div class="card">
                 <a href="#">
                     <div class="card_02">
-                        <h3>責任ある旅行“レスポンシブル・ツーリズム”について</h3>
-                        <p>詳しく見る</p>
+                        <h4>ハワイ独自の取り組み“アロハプラスチャレンジ”について</h4>
+                        <span class="btn">詳しく見る</span>
+                        <p>SDG’sを基準にハワイ州が独自のゴールを設定した特別プログラムです。官民一体となり経済、社会、環境の側面からを持続可能な社会を目指します。</p>
+                        <span class="txt_EN">ABOUT “ALOHA + CHALLENGE”</span>
                     </div>
                 </a>
             </div>
             <div class="card">
                 <a href="#">
                     <div class="card_03">
-                        <h3>責任ある旅行“レスポンシブル・ツーリズム”について</h3>
-                        <p>詳しく見る</p>
+                        <h4>ハワイ州観光局からのメッセージ</h4>
+                        <span class="btn">詳しく見る</span>
+                        <p>歴史的にも深い関係を持つ日本とハワイが、これからも共に支え合い、高め合う良い関係が継続できるようハワイ州観光局もサポートしていきます。</p>
+                        <span class="txt_EN">MESSAGE FROM HAWAI‘I TOURISM JAPAN</span>
                     </div>
                 </a>
             </div>
