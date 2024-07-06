@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>終極密碼小遊戲</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            background-image: url(https://image.presslogic.com/cats.presslogic.com/wp-content/uploads/2021/04/e7c1d724.jpeg?auto=format&w=718);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: 25%;
+            display: grid;
+            place-items: center;
+        }
+
+        .guess {
+            margin-bottom: 20px;
+        }
+
+        .guess input {
+            width: 195px;
+            height: 50px;
+            font-size: 30px;
+            color: #0066CC;
+            border-color: cornflowerblue;
+        }
+
+        .btn button {
+            font-size: 16px;
+            color: #0066CC;
+            background-color: #ECECFF;
+            border-color: cornflowerblue;
+
+        }
+
+        .txt {
+            color: #004B97;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="guess">
+            <input type="text" id="guessInput" placeholder="開始猜!!">
+        </div>
+        <div class="btn">
+            <button id="submitBtn">猜!</button>
+            <button id="revealBtn">偷看答案</button>
+            <button id="restartBtn">我要重玩</button>
+        </div>
+        <div class="txt">
+            <p id="hint">請輸入 1-100 的數字來開始遊戲</p>
+        </div>
+    </div>
+
+
+    <script>
+        let answer;
+        let min = 1;
+        let max = 100;
+
+        function resetGame() {
+            answer = Math.floor(Math.random() * 100) + 1;
+            min = 1;
+            max = 100;
+            document.getElementById("hint").textContent = "輸入 1-100 的數字來開始遊戲";
+            document.getElementById("guessInput").value = '';
+        }
+
+        function submitGuess() {
+            const guess = parseInt(document.getElementById("guessInput").value, 10);
+            if (isNaN(guess) || guess < min || guess > max) {
+                alert(`輸入 ${min}-${max} 的數字`);
+                return;
+            }
+
+            if (guess === answer) {
+                document.getElementById("hint").textContent = "猜中了！";
+            } else if (guess < answer) {
+                min = guess + 1;
+                document.getElementById("hint").textContent = `輸入 ${min}-${max} 的數字`;
+            } else {
+                max = guess - 1;
+                document.getElementById("hint").textContent = `輸入 ${min}-${max} 的數字`;
+            }
+
+            document.getElementById("guessInput").value = '';
+        }
+
+        function revealAnswer() {
+            alert(`答案是 ${answer}`);
+        }
+
+        document.getElementById("submitBtn").addEventListener("click", submitGuess);
+        document.getElementById("revealBtn").addEventListener("click", revealAnswer);
+        document.getElementById("restartBtn").addEventListener("click", resetGame);
+
+        resetGame();
+    </script>
+</body>
+
+</html>
