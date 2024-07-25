@@ -1,0 +1,108 @@
+.calendar {
+    text-align: center;
+    width: 90vw;
+    margin: auto;
+    margin-top: 50px;
+    color: #dbd3c8;
+    background-color: #7b0619;
+    border: 10px solid #dbd3c8;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.calendar_header {
+    font-size: 40px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn {
+    color: #dbd3c8;
+    border: 1px solid #dbd3c8;
+}
+
+.btn:hover {
+    color: #7b0619;
+    background-color: #dbd3c8;
+}
+
+.calendar_header_main {
+    display: flex;
+    gap: 50px;
+}
+
+.calendar_weeks {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: #dbd3c8;
+    color: #7b0619;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.calendar_days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    font-size: 15px;
+}
+
+.day {
+    height: 100px;
+    padding: 5px;
+    border-bottom: 1px solid #dbd3c8;
+    position: relative;
+    overflow: hidden;
+}
+
+.day:hover {
+    background-color: rgba(219, 211, 200, 0.5);
+    border-radius: 20px;
+}
+
+.today {
+    background-color: #dbd3c8;
+    color: #7b0619;
+    border-radius: 20px;
+}
+
+/* 代辦事項 */
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    /* 背景顏色 */
+    color: #000;
+    /* 文字顏色 */
+    white-space: nowrap;
+    /* 防止換行 */
+    overflow: hidden;
+    /* 隱藏超出內容 */
+    text-overflow: ellipsis;
+    /* 顯示省略符號 */
+}
+
+/* 表單 */
+.modal-content {
+    padding: 15px;
+    background-color: #dbd3c8;
+    border: 3px solid #7b0619;
+}
+
+.form-control-color,
+.modal_form_txt {
+    border: 1px solid #7b0619;
+}
+
+.modal_btn {
+    border: 1px solid #7b0619;
+    color: #7b0619;
+}
+
+.modal_btn:hover {
+    color: #dbd3c8;
+    background-color: #7b0619;
+}
